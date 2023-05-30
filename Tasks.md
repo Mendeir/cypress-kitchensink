@@ -1,0 +1,15 @@
+# Tasks
+- [x] Github clone cypress kitchen sink
+- [] Delete all specs under e2e
+- [] Test <your app url>/todo
+- [] Test
+    - [] Add Todo Item
+    - [] Check walk the dog
+    - [] Assert that there are 3 items
+    - [] show all/active/completed
+    - [] clear copmleted
+    - [] check all
+- [] visit /commands/actions and submit a Coupon Code
+- [] visit /commands/misc
+    - [] assert its the correct url
+    - [] assert that the table is clickable (should turn)
