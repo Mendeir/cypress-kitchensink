@@ -1,7 +1,7 @@
 # Tasks
 - [x] Github clone cypress kitchen sink
 - [x] Delete all specs under e2e
-- [] Test <your app url>/todo
+- [x] Test <your app url>/todo
 - [] Test
     - [] Add Todo Item
     - [] Check walk the dog
