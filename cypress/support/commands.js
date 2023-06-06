@@ -9,3 +9,7 @@ Cypress.Commands.add("addToDoItem", (itemName) => {
 Cypress.Commands.add("completeToDoItem", (index) => {
   return cy.get(".view").get(".toggle").eq(index).click();
 });
+
+Cypress.Commands.add("executeFilter", (filterName) => {
+  return cy.get(".filters").contains(filterName).click();
+});

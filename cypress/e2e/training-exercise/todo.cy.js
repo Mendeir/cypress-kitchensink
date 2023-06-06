@@ -12,13 +12,13 @@ describe("todo", () => {
     cy.completeToDoItem(1).should("be.checked");
   });
 
-  it.only("as a user, i want to make sure all items are being added: check if there are 3 items", () => {
+  it("as a user, i want to make sure all items are being added: check if there are 3 items", () => {
     cy.addToDoItem("Buy Milk");
     cy.get(".todo-list li").should("have.length", 3);
   });
 
-  it("asserts it shows 2 items in show all", () => {
-    cy.get(".selected").click();
+  it("as a user, i want to be able to see all my items in show all: there are only 2 items.", () => {
+    cy.executeFilter("All");
     cy.get(".todo-list li").should("have.length", 2);
   });
 
