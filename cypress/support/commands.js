@@ -5,3 +5,7 @@ Cypress.Commands.add("getDataTest", (value) => {
 Cypress.Commands.add("addToDoItem", (itemName) => {
   return cy.getDataTest("new-todo").type(`${itemName} {enter}`);
 });
+
+Cypress.Commands.add("completeToDoItem", (index) => {
+  return cy.get(".view").get(".toggle").eq(index).click();
+});
