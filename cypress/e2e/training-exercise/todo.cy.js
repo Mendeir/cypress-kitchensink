@@ -55,4 +55,10 @@ describe("todo", () => {
       "Your form has been submitted!"
     );
   });
+
+  it("asserts that it can visit /commands/misc and is a correct url", () => {
+    cy.visit("localhost:8080/commands/misc");
+    cy.url().should("include", "/commands/misc");
+  });
+
 });
