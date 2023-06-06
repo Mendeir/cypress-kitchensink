@@ -33,4 +33,10 @@ describe("todo", () => {
     cy.get(".filters > :nth-child(3) > a").click();
     cy.get(".todo-list li").should("have.length", 1);
   });
+
+  it("asserts that it shows 1 items in all after clearing all completed", () => {
+    cy.get(":nth-child(1) > .view > .toggle").click().should("be.checked");
+    cy.get(".clear-completed").click();
+    cy.get(".todo-list li").should("have.length", 1);
+  });
 });

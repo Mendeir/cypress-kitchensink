@@ -8,7 +8,7 @@
   - [x] Check walk the dog
   - [x] Assert that there are 3 items
   - [x] show all/active/completed
-  - [] clear copmleted
+  - [x] clear completed
   - [] check all
 - [] visit /commands/actions and submit a Coupon Code
 - [] visit /commands/misc
