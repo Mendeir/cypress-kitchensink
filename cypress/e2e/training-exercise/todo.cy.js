@@ -28,7 +28,7 @@ describe("todo", () => {
     cy.get(".todo-list li").should("have.length", 1);
   });
 
-  it.only("as a user, i want to be able to see all my complted items in show complted: there is only 1 item", () => {
+  it("as a user, i want to be able to see all my complted items in show complted: there is only 1 item", () => {
     cy.completeToDoItem(0);
     cy.executeFilter("Completed");
     cy.get(".todo-list li").should("have.length", 1);
