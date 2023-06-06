@@ -10,7 +10,6 @@ describe("todo", () => {
 
   it("as a user, i want to be able to complete a task: walk the dog", () => {
     cy.completeToDoItem(1).should("be.checked");
-    // cy.get(":nth-child(2) > .view > .toggle").click().should("be.checked");
   });
 
   it("asserts that there are 3 items", () => {
