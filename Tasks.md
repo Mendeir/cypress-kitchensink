@@ -4,7 +4,7 @@
 - [x] Test <your app url>/todo
 - [] Test
     - [x] Add Todo Item
-    - [] Check walk the dog
+    - [x] Check walk the dog
     - [] Assert that there are 3 items
     - [] show all/active/completed
     - [] clear copmleted
