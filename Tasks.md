@@ -11,6 +11,6 @@
   - [x] clear completed
   - [x] check all
 - [x] visit /commands/actions and submit a Coupon Code
-- [] visit /commands/misc
-  - [] assert its the correct url
-  - [] assert that the table is clickable (should turn)
+- [x] visit /commands/misc
+  - [x] assert its the correct url
+  - [x] assert that the table is clickable (should turn)

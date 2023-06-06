@@ -61,4 +61,9 @@ describe("todo", () => {
     cy.url().should("include", "/commands/misc");
   });
 
+  it("asserts that it can visit /commands/misc and the table is clickable (should turn)", () => {
+    cy.visit("localhost:8080/commands/misc");
+    cy.get(".table-bordered").click();
+    cy.get(".table-bordered").should("have.class", "table-bordered");
+  });
 });
