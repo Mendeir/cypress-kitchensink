@@ -4,6 +4,11 @@ describe("todo", () => {
   });
 
   it("adds a todo", () => {
-    cy.get('[data-test="new-todo"]').type("Buy Milk{enter}");
+    cy.getDataTest("new-todo").type("Buy Milk{enter}");
+    cy.get(".todo-list").should("contain", "Buy Milk");
+  });
+
+  it("checks walk the dog", () => {
+    cy.get(":nth-child(2) > .view > .toggle").click();
   });
 });
