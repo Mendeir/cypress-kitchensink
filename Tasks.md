@@ -3,7 +3,7 @@
 - [x] Delete all specs under e2e
 - [x] Test <your app url>/todo
 - [] Test
-    - [] Add Todo Item
+    - [x] Add Todo Item
     - [] Check walk the dog
     - [] Assert that there are 3 items
     - [] show all/active/completed
