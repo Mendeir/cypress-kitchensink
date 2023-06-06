@@ -12,8 +12,8 @@ describe("todo", () => {
     cy.completeToDoItem(1).should("be.checked");
   });
 
-  it("asserts that there are 3 items", () => {
-    cy.getDataTest("new-todo").type("Buy Milk{enter}");
+  it.only("as a user, i want to make sure all items are being added: check if there are 3 items", () => {
+    cy.addToDoItem("Buy Milk");
     cy.get(".todo-list li").should("have.length", 3);
   });
 
