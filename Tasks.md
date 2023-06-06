@@ -10,7 +10,7 @@
   - [x] show all/active/completed
   - [x] clear completed
   - [x] check all
-- [] visit /commands/actions and submit a Coupon Code
+- [x] visit /commands/actions and submit a Coupon Code
 - [] visit /commands/misc
   - [] assert its the correct url
   - [] assert that the table is clickable (should turn)

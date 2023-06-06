@@ -5,7 +5,6 @@ describe("todo", () => {
 
   it("asserts that it can check all todo-list items", () => {
     cy.get('[for="toggle-all"]').click();
-    // cy.get(":nth-child(1) > .view > .toggle").click();
     cy.get(":nth-child(2) > .view > .toggle").should("be.checked");
     cy.get(":nth-child(1) > .view > .toggle").should("be.checked");
   });
@@ -45,5 +44,15 @@ describe("todo", () => {
     cy.get(":nth-child(1) > .view > .toggle").click().should("be.checked");
     cy.get(".clear-completed").click();
     cy.get(".todo-list li").should("have.length", 1);
+  });
+
+  it("asserts that it can visit /commands/actions and submit a Coupon Code", () => {
+    cy.visit("localhost:8080/commands/actions");
+    cy.get("#couponCode1").type("test");
+    cy.get(".action-form > .btn").click();
+    cy.get(":nth-child(14) > .well").should(
+      "contain",
+      "Your form has been submitted!"
+    );
   });
 });
