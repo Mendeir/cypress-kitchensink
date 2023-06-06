@@ -22,15 +22,15 @@ describe("todo", () => {
     cy.get(".todo-list li").should("have.length", 2);
   });
 
-  it.only("as a user, i want to be able to see all my active items in show active: there is only 1 item", () => {
+  it("as a user, i want to be able to see all my active items in show active: there is only 1 item", () => {
     cy.completeToDoItem(0);
     cy.executeFilter("Active");
     cy.get(".todo-list li").should("have.length", 1);
   });
 
-  it("asserts it shows 1 item in show completed", () => {
-    cy.get(":nth-child(1) > .view > .toggle").click().should("be.checked");
-    cy.get(".filters > :nth-child(3) > a").click();
+  it.only("as a user, i want to be able to see all my complted items in show complted: there is only 1 item", () => {
+    cy.completeToDoItem(0);
+    cy.executeFilter("Completed");
     cy.get(".todo-list li").should("have.length", 1);
   });
 
