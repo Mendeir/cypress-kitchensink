@@ -3,6 +3,13 @@ describe("todo", () => {
     cy.visit(Cypress.env("todo_url"));
   });
 
+  it("asserts that it can check all todo-list items", () => {
+    cy.get('[for="toggle-all"]').click();
+    // cy.get(":nth-child(1) > .view > .toggle").click();
+    cy.get(":nth-child(2) > .view > .toggle").should("be.checked");
+    cy.get(":nth-child(1) > .view > .toggle").should("be.checked");
+  });
+
   it("adds a todo", () => {
     cy.getDataTest("new-todo").type("Buy Milk{enter}");
     cy.get(".todo-list").should("contain", "Buy Milk");
