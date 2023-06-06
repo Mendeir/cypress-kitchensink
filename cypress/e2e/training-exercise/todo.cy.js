@@ -3,8 +3,8 @@ describe("todo", () => {
     cy.visit(Cypress.env("todo_url"));
   });
 
-  it("adds a todo", () => {
-    cy.getDataTest("new-todo").type("Buy Milk{enter}");
+  it("as a user, i can add my own todo item", () => {
+    cy.addToDoItem("Buy Milk");
     cy.get(".todo-list").should("contain", "Buy Milk");
   });
 
