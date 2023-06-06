@@ -3,12 +3,6 @@ describe("todo", () => {
     cy.visit(Cypress.env("todo_url"));
   });
 
-  it("asserts that it can check all todo-list items", () => {
-    cy.get('[for="toggle-all"]').click();
-    cy.get(":nth-child(2) > .view > .toggle").should("be.checked");
-    cy.get(":nth-child(1) > .view > .toggle").should("be.checked");
-  });
-
   it("adds a todo", () => {
     cy.getDataTest("new-todo").type("Buy Milk{enter}");
     cy.get(".todo-list").should("contain", "Buy Milk");
@@ -65,5 +59,11 @@ describe("todo", () => {
     cy.visit("localhost:8080/commands/misc");
     cy.get(".table-bordered").click();
     cy.get(".table-bordered").should("have.class", "table-bordered");
+  });
+
+  it("asserts that it can check all todo-list items", () => {
+    cy.get('[for="toggle-all"]').click();
+    cy.get(":nth-child(2) > .view > .toggle").should("be.checked");
+    cy.get(":nth-child(1) > .view > .toggle").should("be.checked");
   });
 });
