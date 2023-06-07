@@ -53,7 +53,7 @@ describe("tasks", () => {
       cy.visit(Cypress.env("actions_url"));
     });
 
-    it.only("asserts that it can visit /commands/actions and submit a Coupon Code", () => {
+    it("asserts that it can visit /commands/actions and submit a Coupon Code", () => {
       cy.get(".action-form").find('[type="text"]').type("test");
       cy.get(".action-form")
         .submit()
