@@ -1,5 +1,5 @@
 describe("tasks", () => {
-  context.only("todo", () => {
+  context("todo", () => {
     beforeEach(() => {
       cy.visit(Cypress.env("todo_url"));
     });
