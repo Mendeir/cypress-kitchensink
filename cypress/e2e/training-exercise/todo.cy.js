@@ -50,7 +50,7 @@ describe("tasks", () => {
 
   context("/commands/actions", () => {
     beforeEach(() => {
-      cy.visit("localhost:8080/commands/actions");
+      cy.visit(Cypress.env("actions_url"));
     });
 
     it("asserts that it can visit /commands/actions and submit a Coupon Code", () => {
@@ -65,7 +65,7 @@ describe("tasks", () => {
 
   context("/commands/misc", () => {
     beforeEach(() => {
-      cy.visit("localhost:8080/commands/misc");
+      cy.visit(Cypress.env("misc_url"));
     });
 
     it("asserts that it can visit /commands/misc and is a correct url", () => {

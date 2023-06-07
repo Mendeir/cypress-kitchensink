@@ -5,5 +5,7 @@ module.exports = {
   },
   env: {
     todo_url: "http://localhost:8080/todo.html",
+    actions_url: "http://localhost:8080/commands/actions",
+    misc_url: "http://localhost:8080/commands/misc",
   },
 };
