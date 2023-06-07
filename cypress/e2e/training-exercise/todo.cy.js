@@ -34,8 +34,8 @@ describe("todo", () => {
     cy.get(".todo-list li").should("have.length", 1);
   });
 
-  it("asserts that it shows 1 items in all after clearing all completed", () => {
-    cy.get(":nth-child(1) > .view > .toggle").click().should("be.checked");
+  it.only("as a user, i want to be able to clear all my completed items upon clicking clear all completed: there must be 1 item left", () => {
+    cy.completeToDoItem(0);
     cy.get(".clear-completed").click();
     cy.get(".todo-list li").should("have.length", 1);
   });
