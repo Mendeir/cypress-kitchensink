@@ -53,13 +53,12 @@ describe("tasks", () => {
       cy.visit(Cypress.env("actions_url"));
     });
 
-    it("asserts that it can visit /commands/actions and submit a Coupon Code", () => {
-      cy.get("#couponCode1").type("test");
-      cy.get(".action-form > .btn").click();
-      cy.get(":nth-child(14) > .well").should(
-        "contain",
-        "Your form has been submitted!"
-      );
+    it.only("asserts that it can visit /commands/actions and submit a Coupon Code", () => {
+      cy.get(".action-form").find('[type="text"]').type("test");
+      cy.get(".action-form")
+        .submit()
+        .next()
+        .should("contain", "Your form has been submitted!");
     });
   });
 
