@@ -1,5 +1,5 @@
 describe("tasks", () => {
-  context("todo", () => {
+  context.only("todo", () => {
     beforeEach(() => {
       cy.visit(Cypress.env("todo_url"));
     });
@@ -9,8 +9,16 @@ describe("tasks", () => {
       cy.get(".todo-list").should("contain", "Buy Milk");
     });
 
-    it("as a user, i want to be able to complete a task: walk the dog", () => {
+    it("as a user, i want to be able to complete a task: walk the dog: only walk the dog is checked (default)", () => {
       cy.completeToDoItem(1).should("be.checked");
+      cy.getToDoCheckBox(0).should("not.be.checked");
+    });
+
+    it("as a user, i want to be able to complete a task: walk the dog: only walk the dog is checked (generated)", () => {
+      cy.regenerateToDoItems();
+
+      cy.completeToDoItem(1).should("be.checked");
+      cy.getToDoCheckBox(0).should("not.be.checked");
     });
 
     it("as a user, i want to make sure all items are being added: check if there are 3 items", () => {
@@ -29,7 +37,7 @@ describe("tasks", () => {
       cy.get(".todo-list li").should("have.length", 1);
     });
 
-    it("as a user, i want to be able to see all my complted items in show complted: there is only 1 item", () => {
+    it("as a user, i want to be able to see all my complted items in show completed: there is only 1 item", () => {
       cy.completeToDoItem(0);
       cy.executeFilter("Completed");
       cy.get(".todo-list li").should("have.length", 1);
@@ -41,7 +49,15 @@ describe("tasks", () => {
       cy.get(".todo-list li").should("have.length", 1);
     });
 
-    it("as a user, i want to be able to complete all my listed items", () => {
+    it("as a user, i want to be able to complete all my listed items (default)", () => {
+      cy.get('[for="toggle-all"]').click();
+      cy.getToDoCheckBox(0).should("be.checked");
+      cy.getToDoCheckBox(1).should("be.checked");
+    });
+
+    it("as a user, i want to be able to complete all my listed items (generated)", () => {
+      cy.regenerateToDoItems();
+
       cy.get('[for="toggle-all"]').click();
       cy.getToDoCheckBox(0).should("be.checked");
       cy.getToDoCheckBox(1).should("be.checked");
@@ -62,7 +78,7 @@ describe("tasks", () => {
     });
   });
 
-  context.only("/commands/misc", () => {
+  context("/commands/misc", () => {
     beforeEach(() => {
       cy.visit(Cypress.env("misc_url"));
     });

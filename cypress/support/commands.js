@@ -17,3 +17,15 @@ Cypress.Commands.add("completeToDoItem", (index) => {
 Cypress.Commands.add("executeFilter", (filterName) => {
   return cy.get(".filters").contains(filterName).click();
 });
+
+Cypress.Commands.add("removeExistingToDoItems", () => {
+  cy.get(".destroy").each(($element) => {
+    cy.wrap($element).click({ force: true });
+  });
+});
+
+Cypress.Commands.add("regenerateToDoItems", () => {
+  cy.removeExistingToDoItems();
+  cy.addToDoItem("Pay Electric Bill");
+  cy.addToDoItem("Walk The Dog");
+});
