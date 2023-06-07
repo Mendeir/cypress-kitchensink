@@ -1,5 +1,4 @@
 describe("tasks", () => {
-  
   context("todo", () => {
     beforeEach(() => {
       cy.visit(Cypress.env("todo_url"));
@@ -42,10 +41,10 @@ describe("tasks", () => {
       cy.get(".todo-list li").should("have.length", 1);
     });
 
-    it("asserts that it can check all todo-list items", () => {
+    it.only("as a user, i want to be able to complete all my listed items", () => {
       cy.get('[for="toggle-all"]').click();
-      cy.get(":nth-child(2) > .view > .toggle").should("be.checked");
-      cy.get(":nth-child(1) > .view > .toggle").should("be.checked");
+      cy.getToDoCheckBox(0).should("be.checked");
+      cy.getToDoCheckBox(1).should("be.checked");
     });
   });
 
