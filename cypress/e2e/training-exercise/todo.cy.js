@@ -41,7 +41,7 @@ describe("tasks", () => {
       cy.get(".todo-list li").should("have.length", 1);
     });
 
-    it.only("as a user, i want to be able to complete all my listed items", () => {
+    it("as a user, i want to be able to complete all my listed items", () => {
       cy.get('[for="toggle-all"]').click();
       cy.getToDoCheckBox(0).should("be.checked");
       cy.getToDoCheckBox(1).should("be.checked");
