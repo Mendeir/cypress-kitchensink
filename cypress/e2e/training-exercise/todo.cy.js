@@ -62,7 +62,7 @@ describe("tasks", () => {
     });
   });
 
-  context("/commands/misc", () => {
+  context.only("/commands/misc", () => {
     beforeEach(() => {
       cy.visit(Cypress.env("misc_url"));
     });
@@ -71,9 +71,16 @@ describe("tasks", () => {
       cy.url().should("include", "/commands/misc");
     });
 
-    it("asserts that it can visit /commands/misc and the table is clickable (should turn)", () => {
-      cy.get(".table-bordered").click();
-      cy.get(".table-bordered").should("have.class", "table-bordered");
+    it("asserts that it can visit /commands/misc and the table is clickable (should turn blue)", () => {
+      cy.get(".misc-table").within(() => {
+        cy.contains("Cheryl").click().end();
+        cy.contains("Charles").click();
+      });
+
+      cy.get(".misc-table").within(() => {
+        cy.contains("tr", "Cheryl");
+        cy.contains("tr", "Charles").should("have.class", "info");
+      });
     });
   });
 });
